@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Portal2DProMaxApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Portal2DProMaxApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(Portal2DProMaxApplication.class, args);
+  }
 }
