@@ -8,6 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Document(collection = "scores")
 public class Score {
-    private String name;
-    private int score;
+  private String name;
+  private int score;
 }
