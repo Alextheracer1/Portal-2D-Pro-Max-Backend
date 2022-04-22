@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Document(collection = "scores")
 public class Score {
-  @Id
-  private String userId;
+  @Id private String userId;
   private int score;
 }

@@ -6,5 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface ScoreRepository extends MongoRepository<Score, String> {
   Optional<Score> findByUserId(String userId);
+
   boolean existsByUserId(String userId);
 }

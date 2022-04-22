@@ -9,9 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Document(collection = "users")
 public class User {
-    @Id
-    private String userId;
-    private Credentials credentials;
-
-
+  @Id private String userId;
+  private Credentials credentials;
 }

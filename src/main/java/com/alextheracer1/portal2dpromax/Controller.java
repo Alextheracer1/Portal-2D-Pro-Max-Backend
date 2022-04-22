@@ -2,9 +2,9 @@ package com.alextheracer1.portal2dpromax;
 
 import com.alextheracer1.portal2dpromax.db.ScoreRepository;
 import com.alextheracer1.portal2dpromax.db.UserRepository;
-import com.alextheracer1.portal2dpromax.entities.user.Credentials;
 import com.alextheracer1.portal2dpromax.entities.score.Score;
 import com.alextheracer1.portal2dpromax.entities.score.ScoreSaveRequest;
+import com.alextheracer1.portal2dpromax.entities.user.Credentials;
 import com.alextheracer1.portal2dpromax.entities.user.User;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import java.util.List;
@@ -25,7 +25,6 @@ public class Controller {
   public Controller(ScoreRepository scoreRepo, UserRepository userRepo) {
     this.scoreRepo = scoreRepo;
     this.userRepo = userRepo;
-
   }
 
   @ApiResponse(responseCode = "200", description = "Returns all the scores")
@@ -46,7 +45,6 @@ public class Controller {
     var all = scoreRepo.findByUserId(userId);
     List<Integer> score = all.stream().map(Score::getScore).toList();
     return ResponseEntity.ok(score.toString());
-
   }
 
   @ApiResponse(responseCode = "200", description = "Saves a score to the database")
@@ -70,7 +68,11 @@ public class Controller {
     return ResponseEntity.ok(userRepo.findAll().toString());
   }
 
-  @ApiResponse(responseCode = "200", description = "Saves a new user to the database and creates a new UUID and SHA-256 hash for the password")
+  @ApiResponse(
+      responseCode = "200",
+      description =
+          "Saves a new user to the database and creates a new UUID and SHA-256 hash for the"
+              + " password")
   @PostMapping("/saveUser")
   public ResponseEntity<String> saveUser(@RequestBody Credentials credentials) {
     System.out.println("User creation started...");

@@ -10,8 +10,6 @@ public class Credentials {
   private String password;
 
   public void hashPassword() {
-    password = Hashing.sha256()
-        .hashString(password, StandardCharsets.UTF_8)
-        .toString();
+    password = Hashing.sha256().hashString(password, StandardCharsets.UTF_8).toString();
   }
 }
