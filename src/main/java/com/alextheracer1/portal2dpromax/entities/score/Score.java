@@ -1,13 +1,15 @@
-package com.alextheracer1.portal2dpromax.entities;
+package com.alextheracer1.portal2dpromax.entities.score;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @AllArgsConstructor
 @Document(collection = "scores")
 public class Score {
-  private String name;
+  @Id
+  private String userId;
   private int score;
 }
