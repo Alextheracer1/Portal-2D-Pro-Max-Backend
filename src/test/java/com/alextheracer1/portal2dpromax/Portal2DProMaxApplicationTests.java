@@ -39,15 +39,12 @@ class Portal2DProMaxApplicationTests {
   @Autowired
   private MockMvc mockMvc;
 
-  @Autowired
-  private Controller controller;
-
   @Test
   @Order(1)
   public void saveUserTest() throws Exception {
     var request = post("/saveUser")
-        .param("username", "testUser")
-        .param("password", "testPassword")
+        .param("username", "something")
+        .param("password", "test")
         .contentType(MediaType.APPLICATION_JSON);
 
     mockMvc.perform(request).andExpect(status().isOk());
@@ -61,7 +58,7 @@ class Portal2DProMaxApplicationTests {
     @Override
     public void initialize(@NotNull ConfigurableApplicationContext context) {
       TestPropertySourceUtils.addInlinedPropertiesToEnvironment(context,
-          String.format("spring.data.mongodb.uri=mongodb://%s:%s",mongo.getContainerIpAddress(), mongo.getMappedPort(27017)));
+          String.format("spring.data.mongodb.uri=mongodb://%s:%s", mongo.getHost(), mongo.getMappedPort(27017)));
     }
   }
 

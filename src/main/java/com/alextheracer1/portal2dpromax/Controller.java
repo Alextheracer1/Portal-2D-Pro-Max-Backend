@@ -9,8 +9,11 @@ import com.alextheracer1.portal2dpromax.entities.user.User;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import java.util.List;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
+  private static final Logger log = LoggerFactory.getLogger(Controller.class);
   private final ScoreRepository scoreRepo;
   private final UserRepository userRepo;
 
@@ -50,7 +54,7 @@ public class Controller {
   @ApiResponse(responseCode = "200", description = "Saves a score to the database")
   @ApiResponse(responseCode = "400", description = "UserId is not valid")
   @PostMapping("/saveScore")
-  public ResponseEntity<String> saveScore(@RequestBody ScoreSaveRequest ssr) {
+  public ResponseEntity<String> saveScore(@ModelAttribute ScoreSaveRequest ssr) {
     System.out.println("Score creation started...");
 
     if (!userRepo.existsByUserId(ssr.getUserId())) {
@@ -74,8 +78,8 @@ public class Controller {
           "Saves a new user to the database and creates a new UUID and SHA-256 hash for the"
               + " password")
   @PostMapping("/saveUser")
-  public ResponseEntity<String> saveUser(@RequestBody Credentials credentials) {
-    System.out.println("User creation started...");
+  public ResponseEntity<String> saveUser(@ModelAttribute Credentials credentials) {
+    log.info("User creation started...");
     // uses google's hashing library to hash password into an SHA-256 hash
     credentials.hashPassword();
 
@@ -84,7 +88,7 @@ public class Controller {
 
     userRepo.save(user);
 
-    System.out.println("User creation complete...");
+    log.info("User creation complete...");
 
     return ResponseEntity.ok("User created");
   }
