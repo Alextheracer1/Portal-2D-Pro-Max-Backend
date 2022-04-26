@@ -30,17 +30,34 @@ public class Controller {
     this.userRepo = userRepo;
   }
 
-  @ApiResponse(responseCode = "200", description = "Returns all the scores")
+  @ApiResponse(responseCode = "200", description = "Return a username for a given UUID")
+  @ApiResponse(responseCode = "400", description = "No user found for given UUID")
+  @GetMapping("/getUsername/{userId}")
+  public ResponseEntity<String> getUsername(@PathVariable String userId) {
+    if (!userRepo.existsByUserId(userId)) {
+      return ResponseEntity.badRequest().body("No user found with given UUID");
+    }
+
+    var all = userRepo.findUsernameByUserId(userId);
+
+    List<String> username = all.stream()
+        .map(User::getCredentials)  // gets all credentials from user
+        .map(Credentials::getUsername) // gets username from credentials
+        .toList();
+
+    return ResponseEntity.ok(username.get(0));
+  }
+
+  @ApiResponse(responseCode = "200", description = "Returns all the scores with UUIDs")
   @GetMapping("/getScores")
-  public ResponseEntity<List<Integer>> getScore() {
-    var all = scoreRepo.findAll();
-    List<Integer> scores = all.stream().map(Score::getScore).toList();
-    return ResponseEntity.ok(scores);
+  public ResponseEntity<List<Score>> getScore() {
+    return ResponseEntity.ok(scoreRepo.findAll());
+
   }
 
   @ApiResponse(responseCode = "200", description = "Returns a score for a UUID")
   @ApiResponse(responseCode = "400", description = "No Score for given UUID was found")
-  @GetMapping("/getScores/{userId}")
+  @GetMapping("/getScore/{userId}")
   public ResponseEntity<String> getSpecificScore(@PathVariable String userId) {
     if (!scoreRepo.existsByUserId(userId)) {
       return ResponseEntity.badRequest().body("No score found");
