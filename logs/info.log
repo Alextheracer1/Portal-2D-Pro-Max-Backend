@@ -2817,3 +2817,150 @@ Caused by: java.net.SocketTimeoutException: Connect timed out
         Completed initialization in 1 ms
 20:16:32.440 [http-nio-8080-exec-1              ] [          ] [connection     ] [INFO  ]
         Opened connection [connectionId{localValue:3, serverValue:8011}] to 78.46.221.39:27017
+08:22:51.316 [main                              ] [          ] [Portal2DProMaxA] [INFO  ]
+        Starting Portal2DProMaxApplication using Java 17.0.3 on Alex-PC with PID 6652 (C:\Users\Alex\IdeaProjects\Portal-2D-Pro-Max-Backend\build\classes\java\main started by Alex in C:\Users\Alex\IdeaProjects\Portal-2D-Pro-Max-Backend)
+08:22:51.357 [main                              ] [          ] [Portal2DProMaxA] [INFO  ]
+        No active profile set, falling back to 1 default profile: "default"
+08:22:53.910 [main                              ] [          ] [RepositoryConfi] [INFO  ]
+        Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+08:22:54.108 [main                              ] [          ] [RepositoryConfi] [INFO  ]
+        Finished Spring Data repository scanning in 195 ms. Found 2 MongoDB repository interfaces.
+08:22:55.657 [main                              ] [          ] [TomcatWebServer] [INFO  ]
+        Tomcat initialized with port(s): 8080 (http)
+08:22:55.704 [main                              ] [          ] [Http11NioProtoc] [INFO  ]
+        Initializing ProtocolHandler ["http-nio-8080"]
+08:22:55.709 [main                              ] [          ] [StandardService] [INFO  ]
+        Starting service [Tomcat]
+08:22:55.713 [main                              ] [          ] [StandardEngine ] [INFO  ]
+        Starting Servlet engine: [Apache Tomcat/9.0.60]
+08:22:56.054 [main                              ] [          ] [[/]            ] [INFO  ]
+        Initializing Spring embedded WebApplicationContext
+08:22:56.056 [main                              ] [          ] [ServletWebServe] [INFO  ]
+        Root WebApplicationContext: initialization completed in 4314 ms
+08:22:56.767 [main                              ] [          ] [cluster        ] [INFO  ]
+        Cluster created with settings {hosts=[78.46.221.39:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+08:23:02.360 [main                              ] [          ] [Http11NioProtoc] [INFO  ]
+        Starting ProtocolHandler ["http-nio-8080"]
+08:23:02.549 [main                              ] [          ] [TomcatWebServer] [INFO  ]
+        Tomcat started on port(s): 8080 (http) with context path ''
+08:23:02.598 [main                              ] [          ] [Portal2DProMaxA] [INFO  ]
+        Started Portal2DProMaxApplication in 12.71 seconds (JVM running for 34.2)
+08:23:02.972 [cluster-ClusterId{value='62736d401] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:1, serverValue:114}] to 78.46.221.39:27017
+08:23:02.972 [cluster-ClusterId{value='62736d401] [          ] [cluster        ] [INFO  ]
+        Monitor thread successfully connected to server with description ServerDescription{address=78.46.221.39:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=154835700}
+08:23:02.975 [cluster-rtt-ClusterId{value='62736] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:2, serverValue:113}] to 78.46.221.39:27017
+15:05:47.201 [main                              ] [          ] [Portal2DProMaxA] [INFO  ]
+        Starting Portal2DProMaxApplication using Java 17.0.3 on Alex-PC with PID 8448 (C:\Users\Alex\IdeaProjects\Portal-2D-Pro-Max-Backend\build\classes\java\main started by Alex in C:\Users\Alex\IdeaProjects\Portal-2D-Pro-Max-Backend)
+15:05:47.218 [main                              ] [          ] [Portal2DProMaxA] [INFO  ]
+        No active profile set, falling back to 1 default profile: "default"
+15:05:50.306 [main                              ] [          ] [RepositoryConfi] [INFO  ]
+        Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+15:05:50.547 [main                              ] [          ] [RepositoryConfi] [INFO  ]
+        Finished Spring Data repository scanning in 175 ms. Found 2 MongoDB repository interfaces.
+15:05:52.187 [main                              ] [          ] [TomcatWebServer] [INFO  ]
+        Tomcat initialized with port(s): 8080 (http)
+15:05:52.226 [main                              ] [          ] [Http11NioProtoc] [INFO  ]
+        Initializing ProtocolHandler ["http-nio-8080"]
+15:05:52.231 [main                              ] [          ] [StandardService] [INFO  ]
+        Starting service [Tomcat]
+15:05:52.232 [main                              ] [          ] [StandardEngine ] [INFO  ]
+        Starting Servlet engine: [Apache Tomcat/9.0.60]
+15:05:52.702 [main                              ] [          ] [[/]            ] [INFO  ]
+        Initializing Spring embedded WebApplicationContext
+15:05:52.704 [main                              ] [          ] [ServletWebServe] [INFO  ]
+        Root WebApplicationContext: initialization completed in 5260 ms
+15:05:53.425 [main                              ] [          ] [cluster        ] [INFO  ]
+        Cluster created with settings {hosts=[78.46.221.39:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+15:05:54.099 [cluster-ClusterId{value='6273cbb1b] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:2, serverValue:134}] to 78.46.221.39:27017
+15:05:54.099 [cluster-rtt-ClusterId{value='6273c] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:1, serverValue:135}] to 78.46.221.39:27017
+15:05:54.099 [cluster-ClusterId{value='6273cbb1b] [          ] [cluster        ] [INFO  ]
+        Monitor thread successfully connected to server with description ServerDescription{address=78.46.221.39:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=120049900}
+15:05:57.372 [main                              ] [          ] [Http11NioProtoc] [INFO  ]
+        Starting ProtocolHandler ["http-nio-8080"]
+15:05:57.447 [main                              ] [          ] [TomcatWebServer] [INFO  ]
+        Tomcat started on port(s): 8080 (http) with context path ''
+15:05:57.491 [main                              ] [          ] [Portal2DProMaxA] [INFO  ]
+        Started Portal2DProMaxApplication in 10.45 seconds (JVM running for 28.773)
+15:06:35.373 [http-nio-8080-exec-1              ] [          ] [[/]            ] [INFO  ]
+        Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:06:35.373 [http-nio-8080-exec-1              ] [          ] [DispatcherServl] [INFO  ]
+        Initializing Servlet 'dispatcherServlet'
+15:06:35.380 [http-nio-8080-exec-1              ] [          ] [DispatcherServl] [INFO  ]
+        Completed initialization in 7 ms
+15:06:37.214 [http-nio-8080-exec-1              ] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:3, serverValue:136}] to 78.46.221.39:27017
+15:16:08.193 [main                              ] [          ] [Portal2DProMaxA] [INFO  ]
+        Starting Portal2DProMaxApplication using Java 17.0.3 on Alex-PC with PID 5136 (C:\Users\Alex\IdeaProjects\Portal-2D-Pro-Max-Backend\build\classes\java\main started by Alex in C:\Users\Alex\IdeaProjects\Portal-2D-Pro-Max-Backend)
+15:16:08.208 [main                              ] [          ] [Portal2DProMaxA] [INFO  ]
+        No active profile set, falling back to 1 default profile: "default"
+15:16:12.902 [main                              ] [          ] [RepositoryConfi] [INFO  ]
+        Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+15:16:13.243 [main                              ] [          ] [RepositoryConfi] [INFO  ]
+        Finished Spring Data repository scanning in 299 ms. Found 2 MongoDB repository interfaces.
+15:16:16.068 [main                              ] [          ] [TomcatWebServer] [INFO  ]
+        Tomcat initialized with port(s): 8080 (http)
+15:16:16.141 [main                              ] [          ] [Http11NioProtoc] [INFO  ]
+        Initializing ProtocolHandler ["http-nio-8080"]
+15:16:16.152 [main                              ] [          ] [StandardService] [INFO  ]
+        Starting service [Tomcat]
+15:16:16.157 [main                              ] [          ] [StandardEngine ] [INFO  ]
+        Starting Servlet engine: [Apache Tomcat/9.0.60]
+15:16:17.057 [main                              ] [          ] [[/]            ] [INFO  ]
+        Initializing Spring embedded WebApplicationContext
+15:16:17.059 [main                              ] [          ] [ServletWebServe] [INFO  ]
+        Root WebApplicationContext: initialization completed in 8508 ms
+15:16:18.023 [main                              ] [          ] [cluster        ] [INFO  ]
+        Cluster created with settings {hosts=[78.46.221.39:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+15:16:18.796 [cluster-ClusterId{value='6273ce216] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:1, serverValue:138}] to 78.46.221.39:27017
+15:16:18.797 [cluster-rtt-ClusterId{value='6273c] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:2, serverValue:137}] to 78.46.221.39:27017
+15:16:18.797 [cluster-ClusterId{value='6273ce216] [          ] [cluster        ] [INFO  ]
+        Monitor thread successfully connected to server with description ServerDescription{address=78.46.221.39:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=381124800}
+15:16:23.598 [main                              ] [          ] [Http11NioProtoc] [INFO  ]
+        Starting ProtocolHandler ["http-nio-8080"]
+15:16:23.710 [main                              ] [          ] [TomcatWebServer] [INFO  ]
+        Tomcat started on port(s): 8080 (http) with context path ''
+15:16:23.756 [main                              ] [          ] [Portal2DProMaxA] [INFO  ]
+        Started Portal2DProMaxApplication in 19.847 seconds (JVM running for 29.18)
+15:18:20.161 [http-nio-8080-exec-1              ] [          ] [[/]            ] [INFO  ]
+        Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:18:20.161 [http-nio-8080-exec-1              ] [          ] [DispatcherServl] [INFO  ]
+        Initializing Servlet 'dispatcherServlet'
+15:18:20.170 [http-nio-8080-exec-1              ] [          ] [DispatcherServl] [INFO  ]
+        Completed initialization in 9 ms
+15:18:21.227 [http-nio-8080-exec-1              ] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:3, serverValue:139}] to 78.46.221.39:27017
+15:43:11.733 [cluster-ClusterId{value='6273ce216] [          ] [cluster        ] [INFO  ]
+        Exception in monitor thread while connecting to server 78.46.221.39:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:701)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:579)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:415)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:374)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:216)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:152)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:718)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:576)
+	... 5 common frames omitted
+15:43:12.254 [cluster-ClusterId{value='6273ce216] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:4, serverValue:156}] to 78.46.221.39:27017
+15:43:12.254 [cluster-ClusterId{value='6273ce216] [          ] [cluster        ] [INFO  ]
+        Monitor thread successfully connected to server with description ServerDescription{address=78.46.221.39:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=313717400}
+15:43:24.353 [cluster-rtt-ClusterId{value='6273c] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:5, serverValue:157}] to 78.46.221.39:27017
+15:44:31.590 [http-nio-8080-exec-10             ] [          ] [connection     ] [INFO  ]
+        Opened connection [connectionId{localValue:6, serverValue:158}] to 78.46.221.39:27017
