@@ -40,10 +40,11 @@ public class Controller {
 
     var all = userRepo.findUsernameByUserId(userId);
 
-    List<String> username = all.stream()
-        .map(User::getCredentials)  // gets all credentials from user
-        .map(Credentials::getUsername) // gets username from credentials
-        .toList();
+    List<String> username =
+        all.stream()
+            .map(User::getCredentials) // gets all credentials from user
+            .map(Credentials::getUsername) // gets username from credentials
+            .toList();
 
     return ResponseEntity.ok(username.get(0));
   }
@@ -52,7 +53,6 @@ public class Controller {
   @GetMapping("/getScores")
   public ResponseEntity<List<Score>> getScore() {
     return ResponseEntity.ok(scoreRepo.findAll());
-
   }
 
   @ApiResponse(responseCode = "200", description = "Returns a score for a UUID")
