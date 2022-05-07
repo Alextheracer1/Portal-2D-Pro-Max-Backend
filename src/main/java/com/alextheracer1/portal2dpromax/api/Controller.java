@@ -1,11 +1,11 @@
-package com.alextheracer1.portal2dpromax;
+package com.alextheracer1.portal2dpromax.api;
 
-import com.alextheracer1.portal2dpromax.db.ScoreRepository;
-import com.alextheracer1.portal2dpromax.db.UserRepository;
-import com.alextheracer1.portal2dpromax.entities.score.Score;
-import com.alextheracer1.portal2dpromax.entities.score.ScoreSaveRequest;
-import com.alextheracer1.portal2dpromax.entities.user.Credentials;
-import com.alextheracer1.portal2dpromax.entities.user.User;
+import com.alextheracer1.portal2dpromax.api.db.ScoreRepository;
+import com.alextheracer1.portal2dpromax.api.db.UserRepository;
+import com.alextheracer1.portal2dpromax.api.entities.score.Score;
+import com.alextheracer1.portal2dpromax.api.entities.score.ScoreSaveRequest;
+import com.alextheracer1.portal2dpromax.api.entities.user.Credentials;
+import com.alextheracer1.portal2dpromax.api.entities.user.User;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import java.util.List;
 import java.util.UUID;
@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequestMapping("/api")
 @RestController
 public class Controller {
 

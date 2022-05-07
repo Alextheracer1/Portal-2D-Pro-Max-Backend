@@ -1,4 +1,4 @@
-package com.alextheracer1.portal2dpromax.entities.score;
+package com.alextheracer1.portal2dpromax.api.entities.score;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.alextheracer1.portal2dpromax.entities.score;
+package com.alextheracer1.portal2dpromax.api.entities.score;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
