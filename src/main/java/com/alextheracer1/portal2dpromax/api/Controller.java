@@ -27,7 +27,6 @@ public class Controller {
   private final ScoreRepository scoreRepo;
   private final UserRepository userRepo;
 
-
   public Controller(ScoreRepository scoreRepo, UserRepository userRepo) {
     this.scoreRepo = scoreRepo;
     this.userRepo = userRepo;
