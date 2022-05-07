@@ -1,4 +1,4 @@
-package com.alextheracer1.portal2dpromax.entities.user;
+package com.alextheracer1.portal2dpromax.api.entities.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
