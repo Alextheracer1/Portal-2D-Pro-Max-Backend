@@ -16,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RestService {
 
-  private static final Logger log = LoggerFactory.getLogger(RestService.class);
   private final RestTemplate restTemplate;
 
   public RestService(RestTemplateBuilder restTemplateBuilder) {
