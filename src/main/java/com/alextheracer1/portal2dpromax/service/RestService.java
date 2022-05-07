@@ -28,8 +28,7 @@ public class RestService {
     String host = request.getHttpServletRequest().getRequestURL().toString();
     String url = host + "api/getScores";
 
-    return exchangeAsList(url, new ParameterizedTypeReference<>() {
-    });
+    return exchangeAsList(url, new ParameterizedTypeReference<>() {});
   }
 
   public <T> List<T> exchangeAsList(String uri, ParameterizedTypeReference<List<T>> responseType) {
