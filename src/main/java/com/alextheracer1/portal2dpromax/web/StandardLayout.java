@@ -29,8 +29,4 @@ public class StandardLayout extends VerticalLayout {
     this.content.removeAll();
     this.content.add(content);
   }
-
-
-
-
 }

@@ -15,7 +15,6 @@ public class HomeView extends StandardLayout {
   public HomeView(RestService restService) {
     VerticalLayout content = new VerticalLayout();
 
-
     content.add("Hello World!");
 
     List<Score> scores = restService.getScores();

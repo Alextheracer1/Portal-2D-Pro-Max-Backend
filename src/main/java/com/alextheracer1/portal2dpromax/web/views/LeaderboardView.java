@@ -1,6 +1,5 @@
 package com.alextheracer1.portal2dpromax.web.views;
 
-
 import com.alextheracer1.portal2dpromax.api.entities.score.Score;
 import com.alextheracer1.portal2dpromax.api.entities.score.Score.ScorePresentation;
 import com.alextheracer1.portal2dpromax.service.RestService;
@@ -15,7 +14,6 @@ import java.util.List;
 @Route
 @RouteAlias(value = "/leaderboard")
 public class LeaderboardView extends StandardLayout {
-
 
   public LeaderboardView(RestService restService) {
     header();
@@ -32,12 +30,11 @@ public class LeaderboardView extends StandardLayout {
   private void leaderboard(RestService restService) {
     Grid<Score.ScorePresentation> grid = new Grid<>(Score.ScorePresentation.class, false);
 
-    List<ScorePresentation> scores = restService
-        .getScores()
-        .stream()
-        .limit(10)
-        .map(score -> score.toPresentation(restService))
-        .toList();
+    List<ScorePresentation> scores =
+        restService.getScores().stream()
+            .limit(10)
+            .map(score -> score.toPresentation(restService))
+            .toList();
 
     grid.addColumn(ScorePresentation::getUsername).setHeader("Username").setSortable(true);
     grid.addColumn(ScorePresentation::getScore).setHeader("Score").setSortable(true);

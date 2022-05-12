@@ -37,7 +37,8 @@ public class Controller {
   public ResponseEntity<List<String>> getUsernames() {
 
     var all = userRepo.findAll();
-    List<String> usernames = all.stream().map(User::getCredentials).map(Credentials::getUsername).toList();
+    List<String> usernames =
+        all.stream().map(User::getCredentials).map(Credentials::getUsername).toList();
 
     return ResponseEntity.ok(usernames);
   }

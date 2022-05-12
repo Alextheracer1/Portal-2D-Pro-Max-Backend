@@ -1,7 +1,6 @@
 package com.alextheracer1.portal2dpromax.service;
 
 import com.alextheracer1.portal2dpromax.api.entities.score.Score;
-import com.alextheracer1.portal2dpromax.api.entities.user.Credentials;
 import com.vaadin.flow.server.VaadinService;
 import com.vaadin.flow.server.VaadinServletRequest;
 import java.util.List;
