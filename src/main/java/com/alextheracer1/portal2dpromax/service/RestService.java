@@ -21,12 +21,12 @@ public class RestService {
     this.restTemplate = restTemplateBuilder.build();
   }
 
-  public List<Credentials> getUsernames() {
+  public String getUsernameFromID(String userId) {
     VaadinServletRequest request = (VaadinServletRequest) VaadinService.getCurrentRequest();
     String host = request.getHttpServletRequest().getRequestURL().toString();
-    String url = host + "api/getUsernames";
+    String url = host + "api/getUsername/" + userId;
 
-    return exchangeAsList(url, new ParameterizedTypeReference<>() {});
+    return restTemplate.getForObject(url, String.class);
   }
 
   public List<Score> getScores() throws RestClientException {
