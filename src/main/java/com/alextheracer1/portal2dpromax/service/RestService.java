@@ -1,6 +1,7 @@
 package com.alextheracer1.portal2dpromax.service;
 
 import com.alextheracer1.portal2dpromax.api.entities.score.Score;
+import com.alextheracer1.portal2dpromax.api.entities.user.Credentials;
 import com.vaadin.flow.server.VaadinService;
 import com.vaadin.flow.server.VaadinServletRequest;
 import java.util.List;
@@ -18,6 +19,14 @@ public class RestService {
 
   public RestService(RestTemplateBuilder restTemplateBuilder) {
     this.restTemplate = restTemplateBuilder.build();
+  }
+
+  public List<Credentials> getUsernames() {
+    VaadinServletRequest request = (VaadinServletRequest) VaadinService.getCurrentRequest();
+    String host = request.getHttpServletRequest().getRequestURL().toString();
+    String url = host + "api/getUsernames";
+
+    return exchangeAsList(url, new ParameterizedTypeReference<>() {});
   }
 
   public List<Score> getScores() throws RestClientException {

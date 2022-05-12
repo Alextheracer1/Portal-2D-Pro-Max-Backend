@@ -32,6 +32,16 @@ public class Controller {
     this.userRepo = userRepo;
   }
 
+  @ApiResponse(responseCode = "200", description = "Returns all Usernames in the Database")
+  @GetMapping("/getUsernames")
+  public ResponseEntity<List<String>> getUsernames() {
+
+    var all = userRepo.findAll();
+    List<String> usernames = all.stream().map(User::getCredentials).map(Credentials::getUsername).toList();
+
+    return ResponseEntity.ok(usernames);
+  }
+
   @ApiResponse(responseCode = "200", description = "Return a username for a given UUID")
   @ApiResponse(responseCode = "400", description = "No user found for given UUID")
   @GetMapping("/getUsername/{userId}")
@@ -62,7 +72,7 @@ public class Controller {
   @GetMapping("/getScore/{userId}")
   public ResponseEntity<String> getSpecificScore(@PathVariable String userId) {
     if (!scoreRepo.existsByUserId(userId)) {
-      return ResponseEntity.badRequest().body("No score found");
+      return ResponseEntity.badRequest().body("No score for given userID found");
     }
     var all = scoreRepo.findByUserId(userId);
     List<Integer> score = all.stream().map(Score::getScore).toList();
