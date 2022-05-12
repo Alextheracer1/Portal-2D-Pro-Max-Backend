@@ -20,6 +20,14 @@ public class RestService {
     this.restTemplate = restTemplateBuilder.build();
   }
 
+  public String getUsernameFromID(String userId) {
+    VaadinServletRequest request = (VaadinServletRequest) VaadinService.getCurrentRequest();
+    String host = request.getHttpServletRequest().getRequestURL().toString();
+    String url = host + "api/getUsername/" + userId;
+
+    return restTemplate.getForObject(url, String.class);
+  }
+
   public List<Score> getScores() throws RestClientException {
     VaadinServletRequest request = (VaadinServletRequest) VaadinService.getCurrentRequest();
     String host = request.getHttpServletRequest().getRequestURL().toString();
