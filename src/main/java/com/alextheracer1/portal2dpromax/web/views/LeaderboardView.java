@@ -7,6 +7,7 @@ import com.alextheracer1.portal2dpromax.web.StandardLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import java.util.List;
@@ -16,18 +17,21 @@ import java.util.List;
 public class LeaderboardView extends StandardLayout {
 
   public LeaderboardView(RestService restService) {
-    header();
-    leaderboard(restService);
+    VerticalLayout content = new VerticalLayout();
+    header(content);
+    leaderboard(restService, content);
+    setContent(content);
   }
 
-  private void header() {
+  private void header(VerticalLayout content) {
     H1 leaderboard = new H1("Leaderboard");
     this.setJustifyContentMode(JustifyContentMode.CENTER);
     this.setAlignItems(Alignment.CENTER);
-    add(leaderboard);
+    this.setAlignSelf(Alignment.CENTER);
+    content.add(leaderboard);
   }
 
-  private void leaderboard(RestService restService) {
+  private void leaderboard(RestService restService, VerticalLayout content) {
     Grid<Score.ScorePresentation> grid = new Grid<>(Score.ScorePresentation.class, false);
 
     List<ScorePresentation> scores =
@@ -41,6 +45,6 @@ public class LeaderboardView extends StandardLayout {
 
     grid.setItems(scores);
     grid.addThemeVariants(GridVariant.LUMO_COLUMN_BORDERS);
-    add(grid);
+    content.add(grid);
   }
 }
