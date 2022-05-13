@@ -39,7 +39,6 @@ public class StandardLayout extends VerticalLayout {
 
     footer.add(copyrightIcon);
     footer.add("  2022 Alexander Graf");
-
   }
 
   private void addNavBar() {
@@ -49,7 +48,7 @@ public class StandardLayout extends VerticalLayout {
     navBar.setSizeFull();
     navBar.setMinHeight("3.2rem");
     navBar.setMaxHeight("3.2rem");
-    //navBar.setJustifyContentMode(JustifyContentMode.CENTER);
+    // navBar.setJustifyContentMode(JustifyContentMode.CENTER);
 
     H1 title = new H1("Portal2DProMax");
     menuBar.addItem(title);
