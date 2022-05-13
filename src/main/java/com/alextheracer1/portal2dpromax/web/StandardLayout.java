@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -29,7 +30,16 @@ public class StandardLayout extends VerticalLayout {
   }
 
   private void addFooter() {
-    footer.add("This is a footer");
+
+    Icon copyrightIcon = new Icon(VaadinIcon.COPYRIGHT);
+
+    footer.setMinHeight("3.2rem");
+    footer.setMaxHeight("3.2rem");
+    footer.setId("footer");
+
+    footer.add(copyrightIcon);
+    footer.add("  2022 Alexander Graf");
+
   }
 
   private void addNavBar() {
