@@ -36,7 +36,7 @@ public class LeaderboardView extends StandardLayout {
 
     List<ScorePresentation> scores =
         restService.getScores().stream()
-            .limit(10)
+            .limit(20)
             .map(score -> score.toPresentation(restService))
             .toList();
 
@@ -45,6 +45,7 @@ public class LeaderboardView extends StandardLayout {
 
     grid.setItems(scores);
     grid.addThemeVariants(GridVariant.LUMO_COLUMN_BORDERS);
+    grid.setMinHeight("95%");
     content.add(grid);
   }
 }
