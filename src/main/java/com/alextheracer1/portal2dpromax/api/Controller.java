@@ -6,7 +6,9 @@ import com.alextheracer1.portal2dpromax.api.entities.score.Score;
 import com.alextheracer1.portal2dpromax.api.entities.score.ScoreSaveRequest;
 import com.alextheracer1.portal2dpromax.api.entities.user.Credentials;
 import com.alextheracer1.portal2dpromax.api.entities.user.User;
+import com.google.common.hash.Hashing;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.UUID;
 import org.slf4j.Logger;
@@ -32,15 +34,19 @@ public class Controller {
     this.userRepo = userRepo;
   }
 
-  @ApiResponse(responseCode = "200", description = "Returns all Usernames in the Database")
-  @GetMapping("/getUsernames")
-  public ResponseEntity<List<String>> getUsernames() {
-
+  @ApiResponse(responseCode = "200", description = "Returns the UserId for a given Username")
+  @ApiResponse(responseCode = "400", description = "No user found for given Username")
+  @GetMapping("getUserId/{username}")
+  public ResponseEntity<String> getUserId(@PathVariable String username) {
     var all = userRepo.findAll();
-    List<String> usernames =
-        all.stream().map(User::getCredentials).map(Credentials::getUsername).toList();
 
-    return ResponseEntity.ok(usernames);
+    List<String> userId =
+        all.stream()
+            .filter(user -> user.getCredentials().getUsername().equals(username))
+            .map(User::getUserId)
+            .toList();
+
+    return ResponseEntity.ok(userId.get(0));
   }
 
   @ApiResponse(responseCode = "200", description = "Return a username for a given UUID")
@@ -48,7 +54,7 @@ public class Controller {
   @GetMapping("/getUsername/{userId}")
   public ResponseEntity<String> getUsername(@PathVariable String userId) {
     if (!userRepo.existsByUserId(userId)) {
-      return ResponseEntity.badRequest().body("No user found with given UUID");
+      return ResponseEntity.badRequest().body("No user found for given UUID");
     }
 
     var all = userRepo.findUsernameByUserId(userId);
@@ -60,6 +66,25 @@ public class Controller {
             .toList();
 
     return ResponseEntity.ok(username.get(0));
+  }
+
+  @ApiResponse(responseCode = "200", description = "Login successful")
+  @ApiResponse(responseCode = "401", description = "Invalid credentials")
+  @PostMapping("/checkLogin/{username}/{password}")
+  public ResponseEntity<String> checkLogin(@PathVariable String username,
+      @PathVariable String password) {
+
+    String hashedPassword = Hashing.sha256().hashString(password, StandardCharsets.UTF_8)
+        .toString();
+
+    if (userRepo.findAll().stream().map(User::getCredentials)
+        .anyMatch(credentials -> credentials.getUsername().equals(username))) {
+      if (userRepo.findAll().stream().map(User::getCredentials)
+          .anyMatch(credentials -> credentials.getPassword().equals(hashedPassword))) {
+        return ResponseEntity.ok("Login successful");
+      }
+    }
+    return ResponseEntity.status(401).body("Invalid credentials");
   }
 
   @ApiResponse(responseCode = "200", description = "Returns all the scores with UUIDs")
