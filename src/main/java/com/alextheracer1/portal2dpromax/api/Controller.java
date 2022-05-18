@@ -69,7 +69,7 @@ public class Controller {
   }
 
   @ApiResponse(responseCode = "200", description = "Login successful")
-  @ApiResponse(responseCode = "401", description = "Invalid credentials")
+  @ApiResponse(responseCode = "400", description = "Invalid credentials")
   @PostMapping("/checkLogin/{username}/{password}")
   public ResponseEntity<String> checkLogin(
       @PathVariable String username, @PathVariable String password) {
@@ -83,10 +83,10 @@ public class Controller {
       if (userRepo.findAll().stream()
           .map(User::getCredentials)
           .anyMatch(credentials -> credentials.getPassword().equals(hashedPassword))) {
-        return ResponseEntity.ok("Login successful");
+        return ResponseEntity.status(200).body("Login successful");
       }
     }
-    return ResponseEntity.status(401).body("Invalid credentials");
+    return ResponseEntity.status(400).body("Invalid credentials");
   }
 
   @ApiResponse(responseCode = "200", description = "Returns all the scores with UUIDs")
