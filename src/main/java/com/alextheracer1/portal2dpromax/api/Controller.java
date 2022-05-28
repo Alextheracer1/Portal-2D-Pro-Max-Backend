@@ -8,7 +8,9 @@ import com.alextheracer1.portal2dpromax.api.entities.user.Credentials;
 import com.alextheracer1.portal2dpromax.api.entities.user.User;
 import com.google.common.hash.Hashing;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.models.security.SecurityScheme.In;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.slf4j.Logger;
@@ -91,14 +93,14 @@ public class Controller {
 
   @ApiResponse(responseCode = "200", description = "Returns all the scores with UUIDs")
   @GetMapping("/getScores")
-  public ResponseEntity<List<Score>> getScore() {
+  public ResponseEntity<List<Score>> getScores() {
     return ResponseEntity.ok(scoreRepo.findAll());
   }
 
   @ApiResponse(responseCode = "200", description = "Returns a score for a UUID")
   @ApiResponse(responseCode = "400", description = "No Score for given UUID was found")
   @GetMapping("/getScore/{userId}")
-  public ResponseEntity<String> getSpecificScore(@PathVariable String userId) {
+  public ResponseEntity<String> getScore(@PathVariable String userId) {
     if (!scoreRepo.existsByUserId(userId)) {
       return ResponseEntity.badRequest().body("No score for given userID found");
     }
@@ -109,14 +111,22 @@ public class Controller {
 
   @ApiResponse(responseCode = "200", description = "Saves a score to the database")
   @ApiResponse(responseCode = "400", description = "UserId is not valid")
-  @PostMapping("/saveScore")
-  public ResponseEntity<String> saveScore(@ModelAttribute ScoreSaveRequest ssr) {
+  @ApiResponse(responseCode = "401", description = "New Score is older than the old Score")
+  @PostMapping("/saveScore/{userId}/{score}")
+  public ResponseEntity<String> saveScore(@PathVariable String userId, @PathVariable int score) {
     System.out.println("Score creation started...");
 
-    if (!userRepo.existsByUserId(ssr.getUserId())) {
+    if (!userRepo.existsByUserId(userId)) {
       return ResponseEntity.badRequest().body("User does not exist");
     }
-    Score newScore = new Score(ssr.getUserId(), ssr.getScore());
+    var all = scoreRepo.findByUserId(userId);
+    List<Integer> oldScore = all.stream().map(Score::getScore).toList();
+
+    if (oldScore.get(0) > score) {
+      log.info(oldScore.get(0).toString());
+      return ResponseEntity.status(401).body("Score is lower than previous score");
+    }
+    Score newScore = new Score(userId, score);
     scoreRepo.save(newScore);
     System.out.println("Score creation complete...");
     return ResponseEntity.ok("Score saved");
