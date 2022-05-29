@@ -35,10 +35,7 @@ public class LeaderboardView extends StandardLayout {
     Grid<Score.ScorePresentation> grid = new Grid<>(Score.ScorePresentation.class, false);
 
     List<ScorePresentation> scores =
-        restService.getScores().stream()
-            .limit(20)
-            .map(score -> score.toPresentation(restService))
-            .toList();
+        restService.getScores().stream().map(score -> score.toPresentation(restService)).toList();
 
     grid.addColumn(ScorePresentation::getUsername).setHeader("Username").setSortable(true);
     grid.addColumn(ScorePresentation::getScore).setHeader("Score").setSortable(true);

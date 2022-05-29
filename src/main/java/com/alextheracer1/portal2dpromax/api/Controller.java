@@ -94,6 +94,12 @@ public class Controller {
     return ResponseEntity.ok(scoreRepo.findAll());
   }
 
+  @ApiResponse(responseCode = "200", description = "Returns the top 20 scores")
+  @GetMapping("/getTopScores")
+  public ResponseEntity<List<Score>> getTopScores() {
+    return ResponseEntity.ok(scoreRepo.findTop20ItemsByOrderByScoreDesc());
+  }
+
   @ApiResponse(responseCode = "200", description = "Returns a score for a UUID")
   @ApiResponse(responseCode = "400", description = "No Score for given UUID was found")
   @GetMapping("/getScore/{userId}")

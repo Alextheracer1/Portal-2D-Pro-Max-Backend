@@ -31,7 +31,7 @@ public class RestService {
   public List<Score> getScores() throws RestClientException {
     VaadinServletRequest request = (VaadinServletRequest) VaadinService.getCurrentRequest();
     String host = request.getHttpServletRequest().getRequestURL().toString();
-    String url = host + "api/getScores";
+    String url = host + "api/getTopScores";
 
     return exchangeAsList(url, new ParameterizedTypeReference<>() {});
   }
