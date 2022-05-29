@@ -122,10 +122,13 @@ public class Controller {
     var all = scoreRepo.findByUserId(userId);
     List<Integer> oldScore = all.stream().map(Score::getScore).toList();
 
-    if (oldScore.get(0) > score) {
-      log.info(oldScore.get(0).toString());
-      return ResponseEntity.status(401).body("Score is lower than previous score");
+    if (!oldScore.isEmpty()) {
+      if (oldScore.get(0) > score) {
+        log.info(oldScore.get(0).toString());
+        return ResponseEntity.status(401).body("Score is lower than previous score");
+      }
     }
+
     Score newScore = new Score(userId, score);
     scoreRepo.save(newScore);
     System.out.println("Score creation complete...");
