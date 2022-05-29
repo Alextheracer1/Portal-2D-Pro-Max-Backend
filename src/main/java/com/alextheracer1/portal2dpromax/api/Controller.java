@@ -146,9 +146,15 @@ public class Controller {
       description =
           "Saves a new user to the database and creates a new UUID and SHA-256 hash for the"
               + " password")
+  @ApiResponse(responseCode = "400", description = "User already exists")
   @PostMapping("/saveUser")
   public ResponseEntity<String> saveUser(@ModelAttribute Credentials credentials) {
     log.info("User creation started...");
+
+    if (userRepo.findAll().stream().map(User::getCredentials).anyMatch(cred -> cred.getUsername().equals(credentials.getUsername()))) {
+      return ResponseEntity.badRequest().body("User already exists");
+    }
+
     // uses google's hashing library to hash password into an SHA-256 hash
     credentials.hashPassword();
 
