@@ -148,7 +148,9 @@ public class Controller {
   public ResponseEntity<String> saveUser(@ModelAttribute Credentials credentials) {
     log.info("User creation started...");
 
-    if (userRepo.findAll().stream().map(User::getCredentials).anyMatch(cred -> cred.getUsername().equals(credentials.getUsername()))) {
+    if (userRepo.findAll().stream()
+        .map(User::getCredentials)
+        .anyMatch(cred -> cred.getUsername().equals(credentials.getUsername()))) {
       return ResponseEntity.badRequest().body("User already exists");
     }
 
