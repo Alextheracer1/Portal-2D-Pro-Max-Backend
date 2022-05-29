@@ -84,6 +84,9 @@ jar {
     }
 }
 
+task stage(dependsOn: ['bootJar', 'clean'])
+bootJar.mustRunAfter clean
+
 bootJar {
     dependsOn(['vaadinBuildFrontend'])
     bootJar.archiveName("Website.jar")
