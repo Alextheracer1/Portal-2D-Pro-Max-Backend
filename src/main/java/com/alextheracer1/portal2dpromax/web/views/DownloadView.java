@@ -10,22 +10,25 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 
 @Route
-@RouteAlias(value = "/")
-public class HomeView extends StandardLayout {
+@RouteAlias(value = "/download")
+public class DownloadView extends StandardLayout {
 
-  public HomeView() {
+  public DownloadView() {
     VerticalLayout content = new VerticalLayout();
 
-    H1 h1 = new H1("Welcome to the official Portal2DProMax website!");
+    H1 h1 = new H1("Download Portal2DProMax");
     content.setAlignItems(Alignment.CENTER);
     content.add(h1);
-    content.add("Here you can download the game, or look at the leaderboard.");
-    Button button = new Button("Download");
 
+    Button button = new Button("Download");
     button.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
     button.setIcon(VaadinIcon.DOWNLOAD.create());
-    button.addClickListener(e -> getUI().get().getPage().setLocation("/download"));
-
+    button.addClickListener(
+        e ->
+            getUI()
+                .get()
+                .getPage()
+                .setLocation("https://github.com/Alextheracer1/Portal-2D-Pro-Max/releases/latest"));
     content.add(button);
 
     setContent(content);

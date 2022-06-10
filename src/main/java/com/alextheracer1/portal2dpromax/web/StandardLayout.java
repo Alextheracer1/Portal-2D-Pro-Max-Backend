@@ -35,10 +35,12 @@ public class StandardLayout extends VerticalLayout {
 
     footer.setMinHeight("3.2rem");
     footer.setMaxHeight("3.2rem");
+    footer.setWidthFull();
     footer.setId("footer");
 
     footer.add(copyrightIcon);
     footer.add("  2022 Alexander Graf");
+    footer.setId("footer");
   }
 
   private void addNavBar() {
