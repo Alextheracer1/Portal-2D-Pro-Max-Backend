@@ -13,7 +13,6 @@ import com.vaadin.flow.router.RouteAlias;
 @RouteAlias(value = "/download")
 public class DownloadView extends StandardLayout {
 
-
   public DownloadView() {
     VerticalLayout content = new VerticalLayout();
 
@@ -24,11 +23,14 @@ public class DownloadView extends StandardLayout {
     Button button = new Button("Download");
     button.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
     button.setIcon(VaadinIcon.DOWNLOAD.create());
-    button.addClickListener(e -> getUI().get().getPage().setLocation("https://github.com/Alextheracer1/Portal-2D-Pro-Max/releases/latest"));
+    button.addClickListener(
+        e ->
+            getUI()
+                .get()
+                .getPage()
+                .setLocation("https://github.com/Alextheracer1/Portal-2D-Pro-Max/releases/latest"));
     content.add(button);
-
 
     setContent(content);
   }
-
 }

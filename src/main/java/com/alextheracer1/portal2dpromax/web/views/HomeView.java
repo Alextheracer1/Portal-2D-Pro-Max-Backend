@@ -9,7 +9,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 
-
 @Route
 @RouteAlias(value = "/")
 public class HomeView extends StandardLayout {
